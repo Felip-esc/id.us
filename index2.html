@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale= 0.9">
+  
+   
+    <style>
+     @media only screen and (max-width: 678px) {
+            body {
+                align-items: flex-start; /* Ajuste para começar no topo */
+            }
+
+            main {
+                width: 100%; /* Ajuste a largura conforme necessário */
+                padding: 10px; /* Ajuste o padding conforme necessário */
+            }
+        }
+
+		*{
+			box-sizing: border-box;
+			font-family: 'Poppins', sans-serif;
+		}
+    
+      body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      display: flex;
+			flex-direction:column;
+			align-items:center;
+			min-height: 150vh;
+			background-color: rgb(209, 81, 6);
+			border-width: 2px;
+			padding: 0;
+			margin: 0;
+			min-height: 100vh;
+			transition: background-color 0.5s ease; /* Adicionado para suavizar a transição de cor de fundo */
+			opacity: 1; /* Adicionado para controlar a opacidade */
+		}
+
+      
+
+      h1 {
+        font-size: 27px;
+        color:rgb(209, 81, 6);
+      }
+       h2 {
+        font-size: 18px;
+        color:#0327A5;
+      }
+
+      input {
+        width: 500px;
+        padding: 5px;
+        margin: 10px;
+        color: #D15106;
+        border-width: 2px;
+				border-radius: 5px;
+				border-style: solid;
+				border-color: #464B4D;
+				width: 55%;
+        margin-bottom: 10px;
+      }
+
+      button {
+        background-color: #0327A5; /* Laranja forte */
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+				position: relative;
+				z-index: 0;
+				border-radius: 10px;
+        
+      }
+
+      button:hover {
+        background-color: "#e28316"; /* Cor de laranja mais escura quando hover */
+      }
+
+      p {
+        font-size: 17px;
+        margin: 9px;
+        display: none; /* Oculta as informações por padrão */
+        color: black ; /* Texto em laranja */
+         margin-bottom: 10px; /* Adicionando margem inferior */
+
+      }
+      main {
+			background-color: rgb(217, 214, 206); /* Alterado para ter uma cor de fundo transparente */
+			border-radius: 10px;
+			width: 100%;
+			max-width: 470px;
+			padding: 15px;
+			opacity: 1; /* Adicionado para controlar a opacidade */
+			transition: opacity 0.5s ease; /* Adicionado para suavizar a transição de opacidade */
+       margin-bottom: 20px; /* Adicionando margem inferior */
+}
+		
+        
+        @keyframes glowing {
+				0% { background-position: 0 0; }
+				50% { background-position: 40%0 0; }
+				100% { background-position: 0 0; }
+			}
+      @keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+      #icons-container {
+    display: flex;
+    justify-content: center; /* Alterado para center para centralizar os ícones horizontalmente */
+    align-items: center; /* Mantido para centralizar verticalmente */
+    margin: 10px;
+  }
+
+  #a-googleMapsIcon,
+  #a-wazeIcon {
+    display: none;
+  }
+
+  #icons-container a {
+    margin: 0 5px; /* Adicionado espaçamento mínimo entre os ícones */
+  }
+
+  /* Adicionado estilo para centralizar vertical e horizontalmente */
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+#a-googleMapsIcon,
+#a-wazeIcon {
+  display: none;
+  
+
+}
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px); /* Adiciona o efeito de desfoque ao fundo */
+    -webkit-backdrop-filter: blur(7 px); /* Adiciona suporte para navegadores WebKit como Safari */
+    background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo com transparência */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: flex-start;   
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.loading-overlay.active {
+    opacity: 1; /* Torna a overlay visível quando a classe "active" é aplicada */
+    pointer-events: auto; /* Permite interações com a overlay */
+}
+
+    .loading-image {
+   
+    width: auto;
+    height: auto;
+    max-width: 40%;
+    max-height: 40%;
+    animation: blink 1s infinite;
+}
+strong {
+    display: block; /* Isso faz com que o elemento seja exibido em uma nova linha */
+    margin-top: 20px; /* Adiciona uma margem superior para separá-lo do conteúdo anterior */
+    text-align: left; /* Alinha o texto à esquerda */
+    color: white;
+    font-size: smaller;
+    margin-bottom: 20px; /* Adicionando margem inferior */
+    font-size: 15px
+    
+}
+@keyframes blink {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+#logoFarmaconde {
+            width: 210px;  /* Ajuste este valor conforme necessário */
+            height: auto;  /* Isso garantirá que a proporção da imagem seja mantida */
+            margin-top: 50px; /* Adicionando margem ao topo */
+            margin-bottom: 50px;
+}
+.search-container {
+  position: relative;
+}
+
+.search-container input[type="text"] {
+  padding-right: 30px; /* Adicione algum espaço para a imagem de ícone */
+}
+
+.search-container img.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 5px; /* Ajuste conforme necessário */
+  transform: translateY(-50%);
+  width: 20px; /* Ajuste o tamanho conforme necessário */
+  height: auto;
+  cursor: pointer; /* Se desejar que o cursor mude ao passar sobre o ícone */
+}
+
+
+    </style>
+  
+  <body>
+     <img id="logoFarmaconde" src="https://farmaconde.vtexassets.com/assets/vtex.file-manager-graphql/images/2103f985-7308-45bb-a9d8-ddbb5a40adea___878fdef17fde232e49d53615c8e70f50.png" alt="Logo da Farmaconde">
+      <p></p>
+
+    <main>
+     
+
+    <h1>Identificador de U.S</h1>
+    <h2 id="email-text"></h2> <!-- A frase será preenchida aqui -->
+    <input type="text" id="numeroLoja" placeholder=""onkeydown="if (event.keyCode === 13)getLojaInfo()"> 
+    <button onclick="checkLogin();getLojaInfo()">Obter Informações da Loja</button>
+  <div class="search-container">
+  
+ 
+</div>
+      
+  
+    <p id="cnpj">CNPJ: </p>
+    <p id="nomeLoja">Nome da Loja: </p>
+     <p id="regionalLoja">Regional: </p>
+    <p id="enderecoLoja">Endereço: </p>
+    <p id="municipioLoja">Município: </p>
+    <p id="bairroLoja">Bairro: </p>
+    <p id="telefone">Telefone: </p>
+     <div id="icons-container" class="flex-center">
+  <a href="#" id="a-googleMapsIcon" onclick="openGoogleMaps()">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Google_Maps_icon_%282020%29.svg/714px-Google_Maps_icon_%282020%29.svg.png" alt="Google Maps" style="width: 30px; height: 40px">
+  </a>
+  <a href="#" id="a-wazeIcon" onclick="openWaze()">
+    <img src="https://lemediacom.com/wp-content/uploads/2020/07/waze1.png" alt="Waze" style="width: 85px; height: 45px"> <!-- Ajustado o tamanho da imagem do Waze -->
+  </a>
+</div>
+<div id="loading-overlay" class="loading-overlay">
+    <img src="https://institucional.farmaconde.com.br/wp-content/uploads/2022/07/ico2_farmaconde_logotipo.png" class="loading-image">
+  </div>
+  </main>
+
+
+    <script>
+      document.getElementById('numeroLoja').addEventListener('input', function(e) {
+    var value = e.target.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+    var formattedValue = formatCnpj(value);
+    e.target.value = formattedValue;
+});
+
+function formatCnpj(value) {
+    if (value.length !== 14) return value;
+
+    return value.slice(0, 2) + '.' + 
+           value.slice(2, 5) + '.' + 
+           value.slice(5, 8) + '/' + 
+           value.slice(8, 12) + '-' + 
+           value.slice(12);
+}
+
+       function openGoogleMaps() {
+  var enderecoLoja = document.getElementById('enderecoLoja').textContent.replace('Endereço: ', '');
+  var municipioLoja = document.getElementById('municipioLoja').textContent.replace('Município: ', '');
+  var bairroLoja = document.getElementById('bairroLoja').textContent.replace('Bairro: ', '');
+  var url = 'https://www.google.com/maps/search/' +  encodeURIComponent(enderecoLoja) + '%20' + encodeURIComponent(municipioLoja) + '%20' + encodeURIComponent(bairroLoja);
+  window.open(url, '_blank');
+}
+
+function openWaze() {
+  var enderecoLoja = document.getElementById('enderecoLoja').textContent.replace('Endereço: ', '');
+  var municipioLoja = document.getElementById('municipioLoja').textContent.replace('Município: ', '');
+  var bairroLoja = document.getElementById('bairroLoja').textContent.replace('Bairro: ', '');
+  var url = 'https://waze.com/ul?q=' +  encodeURIComponent(enderecoLoja) + '%20' + encodeURIComponent(municipioLoja) + '%20' + encodeURIComponent(bairroLoja);
+  window.open(url, '_blank');
+}
+
+        
+      function getLojaInfo() {
+        document.getElementById("loading-overlay").classList.add("active");
+        var numeroLoja = document.getElementById('numeroLoja').value;
+        google.script.run
+          .withSuccessHandler(function(result) {
+            document.getElementById('cnpj').style.display = 'block';
+            document.getElementById('nomeLoja').style.display = 'block';
+            document.getElementById('regionalLoja').style.display = 'block';
+            document.getElementById('enderecoLoja').style.display = 'block';
+            document.getElementById('municipioLoja').style.display = 'block';
+            document.getElementById('bairroLoja').style.display = 'block';
+            document.getElementById('telefone').style.display = 'block';
+            document.getElementById('a-googleMapsIcon').style.display = 'block';
+            document.getElementById('a-wazeIcon').style.display = 'block';
+            document.getElementById('icons-container').style.display = 'flex';
+            
+            
+            
+
+            document.getElementById('cnpj').textContent = 'CNPJ: ' + result.cnpj;
+            document.getElementById('nomeLoja').textContent = 'Loja: ' + result.nome;
+            document.getElementById('enderecoLoja').textContent = 'Endereço: ' + result.endereco;
+            document.getElementById('regionalLoja').textContent = 'Regional: ' + result.regional;
+            document.getElementById('municipioLoja').textContent = 'Município: ' + result.municipio;
+            document.getElementById('bairroLoja').textContent = 'Bairro: ' + result.bairro;
+            document.getElementById('telefone').textContent = 'Telefone: ' + result.telefone;
+            document.getElementById("loading-overlay").classList.remove("active");
+            
+          })
+          .getLojaInfo(numeroLoja);
+      }
+      function typeWriter() {
+        const text = "Digite o CNPJ ou número da loja:";
+        let index = 0;
+
+        function innerTypeWriter() {
+            if (index < text.length) {
+                document.getElementById("email-text").innerHTML += text.charAt(index);
+                index++;
+                setTimeout(innerTypeWriter, 100);
+            }
+        }
+
+        innerTypeWriter();
+    }
+
+    typeWriter();
+	function checkLogin() {
+    var loadingOverlay = document.getElementById("loading-overlay");
+    loadingOverlay.classList.add("active");
+  
+}
+
+    </script>
+  </body>
+  <strong class="text-left mb-0" style="color:white ; font-size: smaller;">&trade; 2023 - Suporte T.I</strong>
+
+  </head>
+</html>
+
+
